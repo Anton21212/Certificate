@@ -35,18 +35,20 @@ class DOC:
     def check_write_date_start(self, date_start):
         try:
             time.strptime(date_start, '%Y/%m/%d')
-            par_4 = self.table.cell(0, 1).paragraphs[3]
-            par_4.runs[1].text = self.write_date_start(date_start)
         except ValueError:
             print('Invalid date!')
+        else:
+            par_4 = self.table.cell(0, 1).paragraphs[3]
+            par_4.runs[1].text = self.write_date_start(date_start)
 
     def check_write_date_finish(self, date_finish):
         try:
             time.strptime(date_finish, '%Y/%m/%d')
-            par_4 = self.table.cell(0, 1).paragraphs[3]
-            par_4.runs[15].text = self.write_date_finish(date_finish)
         except ValueError:
             print('Invalid date!')
+        else:
+            par_4 = self.table.cell(0, 1).paragraphs[3]
+            par_4.runs[15].text = self.write_date_finish(date_finish)
 
     def write_date_finish(self, date_finish):
         finish = datetime.datetime.strptime(date_finish, "%Y/%m/%d")
